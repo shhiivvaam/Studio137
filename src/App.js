@@ -1,8 +1,7 @@
 import { Grid } from '@mui/material';
 import './App.css';
-
-const Navbar = require("./components/common/Navbar")
-const QuestionCard = require("./components/core/QuestionCard")
+import Navbar from "./components/common/Navbar";
+import QuestionCard from "./components/core/QuestionCard";
 
 function App() {
   return (
@@ -13,7 +12,7 @@ function App() {
           <Navbar />
         </Grid>
 
-        <Grid item xs={12} className='section' my={10}>
+        <Grid item xs={12} className='section' sx={{ my: 10 }}>
           <QuestionCard />
         </Grid>
 

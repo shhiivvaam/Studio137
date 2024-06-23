@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import { Grid, Typography } from '@mui/material';
-import styles from "../styles/Navbar.css"
+const styles = require("../styles/Navbar.css");
 
 const Navbar = () => {
     return (
