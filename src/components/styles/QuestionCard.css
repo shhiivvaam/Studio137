@@ -1,0 +1,36 @@
+.container {
+    min-height: 80vh;
+    display: flex;
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+}
+
+.categories__container,
+.question__container,
+.answer__container {
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.categories__section,
+.question__section {
+    color: #343333;
+    font-family: lato, sans-serif;
+}
+
+.categories__section {
+    text-transform: uppercase;
+}
+
+.question__progress {
+    color: #e74b16;
+    text-align: center;
+}
+
+.step__container {
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}

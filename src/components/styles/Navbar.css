@@ -1,0 +1,13 @@
+.container {
+    background-color: #fff;
+    padding: 2.5rem 5rem;
+}
+
+.header {
+    color: #e74b16;
+    flex: 1 1 auto;
+    font-family: futura-pt, sans-serif;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
