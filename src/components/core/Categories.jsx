@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Grid } from '@mui/material';
-import styles from '../styles/QuestionCard.css';
+import styles from '../styles/QuestionCard.module.css';
 import ProgressBar from '../common/ProgressBar';
 
 const Categories = ({ currQuestion, questionBank }) => {
@@ -10,17 +10,20 @@ const Categories = ({ currQuestion, questionBank }) => {
 
     React.useEffect(() => {
         setProgress((currQuestion.id * 100) / questionBank.length);
-    }, [currQuestion]);
-    if (progress <= 25) {
-        console.log(1, progress);
-    } else if (progress > 25 && progress <= 50) {
-        console.log(2, progress);
-    } else if (progress > 50 && progress <= 75) {
-        console.log(3, progress);
-    } else if (progress > 75 && progress <= 100) {
-        console.log(4, progress);
-    }
-    // console.log((progress / 25) * 100);
+    }, [currQuestion.id, questionBank.length]);
+
+    React.useEffect(() => {
+        if (progress <= 25) {
+            console.log(1, progress);
+        } else if (progress > 25 && progress <= 50) {
+            console.log(2, progress);
+        } else if (progress > 50 && progress <= 75) {
+            console.log(3, progress);
+        } else if (progress > 75 && progress <= 100) {
+            console.log(4, progress);
+        }
+    }, [progress]);
+
     return (
         <Grid
             container
@@ -33,13 +36,13 @@ const Categories = ({ currQuestion, questionBank }) => {
         >
             <Grid item xs={3} className={styles.categories__section}>
                 <ProgressBar
-                    variant='determinate'
+                    variant="determinate"
                     value={progress <= 25 ? (progress / 25) * 100 : 100}
                 />
                 <span
                     style={{
-                        fontWeight: progress < 100 && progress > 0 ? '700' : '400',
-                        color: progress < 100 && progress > 0 ? '#20adb4' : '#000',
+                        fontWeight: progress <= 25 && progress > 0 ? '700' : '400',
+                        color: progress <= 25 && progress > 0 ? '#20adb4' : '#000',
                     }}
                 >
                     Idealistic
@@ -47,19 +50,19 @@ const Categories = ({ currQuestion, questionBank }) => {
             </Grid>
             <Grid item xs={3} className={styles.categories__section}>
                 <ProgressBar
-                    variant='determinate'
+                    variant="determinate"
                     value={
                         progress <= 25
                             ? 0
-                            : progress > 50
-                                ? 100
-                                : (progress / 25) * 100 - 25
+                            : progress <= 50
+                                ? ((progress - 25) / 25) * 100
+                                : 100
                     }
                 />
                 <span
                     style={{
-                        fontWeight: progress <= 200 && progress > 100 ? '700' : '40',
-                        color: progress <= 200 && progress > 100 ? '#20adb4' : '#000',
+                        fontWeight: progress > 25 && progress <= 50 ? '700' : '400',
+                        color: progress > 25 && progress <= 50 ? '#20adb4' : '#000',
                     }}
                 >
                     Disillusioned
@@ -67,19 +70,19 @@ const Categories = ({ currQuestion, questionBank }) => {
             </Grid>
             <Grid item xs={3} className={styles.categories__section}>
                 <ProgressBar
-                    variant='determinate'
+                    variant="determinate"
                     value={
                         progress <= 50
                             ? 0
-                            : progress > 75
-                                ? 100
-                                : (progress / 25) * 100 - 50
+                            : progress <= 75
+                                ? ((progress - 50) / 25) * 100
+                                : 100
                     }
                 />
                 <span
                     style={{
-                        fontWeight: progress < 300 && progress > 200 ? '700' : '40',
-                        color: progress < 300 && progress > 200 ? '#20adb4' : '#000',
+                        fontWeight: progress > 50 && progress <= 75 ? '700' : '400',
+                        color: progress > 50 && progress <= 75 ? '#20adb4' : '#000',
                     }}
                 >
                     Cynical
@@ -87,19 +90,19 @@ const Categories = ({ currQuestion, questionBank }) => {
             </Grid>
             <Grid item xs={3} className={styles.categories__section}>
                 <ProgressBar
-                    variant='determinate'
+                    variant="determinate"
                     value={
                         progress <= 75
                             ? 0
-                            : progress >= 100
-                                ? 100
-                                : (progress / 25) * 100 - 75
+                            : progress <= 100
+                                ? ((progress - 75) / 25) * 100
+                                : 100
                     }
                 />
                 <span
                     style={{
-                        fontWeight: progress <= 400 && progress > 300 ? '700' : '40',
-                        color: progress <= 400 && progress > 300 ? '#20adb4' : '#000',
+                        fontWeight: progress > 75 && progress <= 100 ? '700' : '400',
+                        color: progress > 75 && progress <= 100 ? '#20adb4' : '#000',
                     }}
                 >
                     Hopeful

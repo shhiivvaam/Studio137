@@ -1,4 +1,7 @@
-import { LinearProgress, linearProgressClasses, styled } from '@mui/material';
+import { LinearProgress } from '@mui/material';
+import { styled } from '@mui/system';
+import { linearProgressClasses } from '@mui/material/LinearProgress';
+
 
 const ProgressBar = styled(LinearProgress)(({ theme }) => ({
     height: 6,

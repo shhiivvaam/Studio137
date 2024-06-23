@@ -1,6 +1,6 @@
 import * as React from 'react';
-import styles from '../styles/QuestionCard.css';
 import { Grid } from '@mui/material';
+import styles from '../styles/QuestionCard.module.css';
 
 const Questions = ({ currQuestion, questionBank }) => {
     return (
@@ -16,9 +16,9 @@ const Questions = ({ currQuestion, questionBank }) => {
             <Grid
                 container
                 item
-                direction='column'
-                justifyContent='space-between'
-                alignItems='center'
+                direction="column"
+                justifyContent="space-between"
+                alignItems="center"
                 xs={12}
                 className={styles.question__section}
             >
